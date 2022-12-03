@@ -1,0 +1,58 @@
+{
+    "content": [
+        {
+            "topic": "profile",
+            "description": "manage users profile",
+            "content": [
+                {
+                    "header": "update user Profile",
+                    "description": "update user Profile",
+                    "method": "POST",
+                    "path": "user/update/",
+                    "bodyParameters": [
+                        {
+                            "name": "userToken",
+                            "type": "string"
+                        },
+                        {
+                            "name": "token",
+                            "type": "string"
+                        },
+                        {
+                            "name": "profile_picture",
+                            "type": "file"
+                        },
+                        {
+                            "name": "profile_description",
+                            "type": "string"
+                        }
+                    ],
+                    "response": {
+                        "status": "success",
+                        "message": "profile updated successfully"
+                    }
+                },
+                {
+                    "header": "get Users name",
+                    "description": "get Users name",
+                    "method": "POST",
+                    "path": "user/user/name/",
+                    "bodyParameters": [
+                        {
+                            "name": "userToken",
+                            "type": "string"
+                        },
+                        {
+                            "name": "token",
+                            "type": "string"
+                        }
+                    ],
+                    "response": {
+                        "status": "success",
+                        "message": "profile updated successfully"
+                    }
+                }
+            ]
+        }
+    ]
+}

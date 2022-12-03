@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+
+        .sideBar {
+            width: 12vw;
+            height: 100vh;
+            border-right: 1px solid #ECEDEF;
+            background-color: #fefefe;
+            display: flex;
+            flex-direction: column;
+           
+
+        }
+
+        .sideBar .top {
+            padding-left: 1vw;
+            height: 6vh;
+            border-bottom: 1px solid #ECEDEF;
+            display: flex;
+            flex-direction: row;
+
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .top .lightModeBtn {
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+            border: 1px solid #ECEDEF;
+            border-radius: 3px;
+            padding: 3px;
+            margin-right: 10px;
+        }
+
+        .sideBar .list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .middle {
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .middle .search {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 4vh;
+            color: #ccd0d5;
+            border: 2px solid #ECEDEF;
+            border-radius: 3px;
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="sideBar">
+            <div class="top">
+                <div style="display: flex; flex-direction: row;align-items: center;margin-right: auto;">
+                    <svg style="width: 22;height:22" width="14" height="15" viewBox="0 0 14 15" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.94469 14.7263C3.73185 14.6879 4.17392 14.6948 4.01054 14.6455C3.76205 14.5702 3.57808 14.4497 3.41608 14.2567C3.08934 13.8692 3.03854 13.3229 3.28703 12.8725C3.34332 12.7684 3.66046 12.4508 7.6432 8.47352C10.0059 6.1159 11.9801 4.1567 12.0309 4.1211C12.2355 3.97187 12.4579 3.90204 12.7256 3.90204C12.937 3.90204 13.0812 3.93627 13.2734 4.03074C13.585 4.18545 13.8033 4.44284 13.9022 4.77965C13.9365 4.89465 13.9434 4.94805 13.9489 5.16847C13.9571 5.44914 13.9983 11.9319 13.9997 13.0149C14.001 13.6652 13.9997 13.709 13.9695 13.8226C13.8335 14.3456 13.386 14.7112 12.8382 14.7495C12.775 14.7523 11.0232 14.7427 8.94469 14.7263Z"
+                            fill="#252B32" />
+                        <path
+                            d="M1.13572 11.5883C0.727974 11.5321 0.369651 11.2884 0.18843 10.9434C0.0964467 10.7668 0.0580059 10.6093 0.0511412 10.3547C0.0442768 10.1096 0.00171748 3.61042 0.000344578 2.48501C-0.00102829 1.82647 0.00034458 1.78266 0.0305482 1.67039C0.145871 1.2309 0.4836 0.892731 0.922923 0.780464C1.0355 0.750344 1.08218 0.748975 1.73979 0.750344C2.83261 0.751713 9.36479 0.792786 9.6229 0.801001C9.81785 0.806477 9.87688 0.814692 9.98946 0.847551C10.3258 0.947496 10.5867 1.16519 10.7404 1.47461C10.8365 1.66765 10.8695 1.81141 10.8695 2.02225C10.8695 2.2728 10.805 2.49049 10.6718 2.69038C10.6073 2.78759 2.08438 11.287 1.96906 11.3706C1.73567 11.5403 1.4103 11.6252 1.13572 11.5883Z"
+                            fill="#252B32" />
+                    </svg>
+                    <div style="font-family: 'Poppins', sans-serif;font-weight:600;font-size: 2vh;margin-left: 10px;">
+                        Cece Api</div>
+                </div>
+                <div class="lightModeBtn">
+                    <svg width="24" height="24" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.5 1V1.81818M5.5 9.18182V10M2.31727 2.31727L2.89818 2.89818M8.10182 8.10182L8.68273 8.68273M1 5.5H1.81818M9.18182 5.5H10M2.31727 8.68273L2.89818 8.10182M8.10182 2.89818L8.68273 2.31727M7.54545 5.5C7.54545 6.62967 6.62967 7.54545 5.5 7.54545C4.37033 7.54545 3.45455 6.62967 3.45455 5.5C3.45455 4.37033 4.37033 3.45455 5.5 3.45455C6.62967 3.45455 7.54545 4.37033 7.54545 5.5Z"
+                            stroke="#6B7682" stroke-opacity="0.72" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="search">Jump to</div>
+                <div class="list">
+                    <a style="color:#0e91c0">Introduction</a>
+                    <a>Getting started</a>
+                    <a>Test</a>
+                    <a>Test 2</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mainWindow">
+
+        </div>
+    </div>
+    <script>
+        function turnLightButtonOn() {
+            document.getElementsByClassName("lightModeBtn")[0].style.display = "flex";
+        }
+        function turnLightButtonOff() {
+            document.getElementsByClassName("lightModeBtn")[0].style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

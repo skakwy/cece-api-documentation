@@ -1,0 +1,24 @@
+{
+    "sites": [
+        {
+            "name": "Getting started",
+            "children": [
+                {
+                    "name": "Get api Token"
+                },
+                {
+                    "name": "Make a Request"
+                }
+            ]
+        },
+        {
+            "name": "Verification",
+            "content": "<h1>Verification</h1>",
+            "children": [
+                {
+                    "name": "token"
+                }
+            ]
+        }
+    ]
+}

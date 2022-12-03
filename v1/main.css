@@ -1,0 +1,36 @@
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+        .sideBar {
+            width: 18vw;
+            height: 100vh;
+            border-right: 1px solid #ECEDEF;
+            background-color: #fefefe;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .mainWindow {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-left: 50px;
+            padding-top: 20px;
+            overflow-y: scroll;
+
+        }
+        h4 {
+            color: #687583;
+        }
