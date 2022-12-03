@@ -75,7 +75,7 @@
                     ],
                     "response": {
                         "status": "success",
-                        "message": "profile updated successfully"
+                        "message": "profile updated "
                     }
                 }
             ]
