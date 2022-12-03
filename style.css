@@ -309,8 +309,9 @@ body {
 }
 .responseTextContainer {
     /* border: 0.1px solid #999999; */
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 80%;
+
 }
 .responseText{
     color: #d3d3d3;
