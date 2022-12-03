@@ -104,7 +104,22 @@ body {
     box-shadow: #ECEDEF 0px 1px 0px 0px;
 
 }
+.sideBarSearchContainer{
+    display: flex;
+    flex-direction: column;
 
+}
+#searchSuggestions{
+    display:flex;
+    flex-direction: column;
+    
+}
+.searchSuggestion{
+    background-color: transparent;
+    border: none;
+    color:white;
+    text-align: start;
+}
 .sideBarSearch::placeholder {
     color: #cbcfd4;
 
@@ -358,6 +373,7 @@ body {
         background-color: #3e3f40;
         border: 1px solid #3e3f40;
         box-shadow: #3e3f40 0px 1px 0px 0px;
+        color:white;
     }
 
     .listChild button {

@@ -28,7 +28,10 @@
             </div>
             <div class="middleContainer">
                 <div class="middle">
-                    <input class="sideBarSearch" placeholder="Jump to" />
+                    <div class="sideBarSearchContainer">
+                        <input class="sideBarSearch" placeholder="Jump to" />
+
+                    </div>
                     <div id="sideBarList" class="list">
 
                     </div>
@@ -39,10 +42,10 @@
 
         <div class="mainWindow">
             <div class="mainWindowContainer" id="mainWindowContainer">
-                
+
                 <!-- <h1>Getting Started</h1>
             <h4 style="margin-top:0;color:#687583">Lorem ipsum dolor sit amet, consectetur adipisicing elit </h4> -->
-          
+
             </div>
         </div>
     </div>
@@ -212,19 +215,33 @@
                     //response text
                     responseText = document.createElement("code");
                     responseText.classList.add("responseText");
-                    responseText.innerHTML = JSON.stringify(data["content"][i]["content"][ii]["response"],null, 2)
+                    responseText.innerHTML = JSON.stringify(data["content"][i]["content"][ii]["response"], null, 2)
                     responseTextContainer.appendChild(responseText);
                     responseContainer.appendChild(responseTextContainer);
                     contentOfTopic.appendChild(responseContainer);
-                    
+
                     topicContainer.appendChild(contentOfTopic);
                 }
-           
+
 
 
                 document.getElementById("mainWindowContainer").appendChild(topicContainer);
             }
         }
+        document.getElementsByClassName("sideBarSearch")[0].addEventListener("keydown", (parsedObj) => {
+            let search = parsedObj.currentTarget.value + parsedObj.key;
+            let allHeaders = document.getElementById("sideBarList").getElementsByTagName("button")
+          
+            for (i = 0; i < allHeaders.length; i++) {
+                if(allHeaders[i].innerHTML.startsWith(search)){
+                    console.log(allHeaders[i].innerHTML)
+                    document.getElementById(allHeaders[i].innerHTML).scrollIntoView({behavior:"smooth"});
+                    break;
+                }
+     
+            }
+        })
+
         loadSites()
         loadContent()
 
