@@ -181,8 +181,10 @@
                             body[names[i].innerHTML] = inputFields[i].value;
                         }
                         console.log(body)
-                        fetch("https://google.com" + path, body = body, method = method)
-
+                        fetch(data["apiLink"] + path, body = body, method = method)
+                            .then(response => response.json())
+                            .then(data => console.log(data));
+                        
 
                     })
 
