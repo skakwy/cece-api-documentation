@@ -78,6 +78,30 @@
                         "status": "success",
                         "message": "profile updated "
                     }
+                },
+                {
+            "topic": "notes",
+            "description": "manage users notes",
+            "content": [
+                {
+                    "header": "get notes",
+                    "description": "get the id of app your notes",
+                    "method": "POST",
+                    "path": "user/update/",
+                    "bodyParameters": [
+                        {
+                            "name": "userToken",
+                            "type": "string"
+                        },
+                        {
+                            "name": "token",
+                            "type": "string"
+                        }
+                    ],
+                    "response": {
+                        "status": "success",
+                        "notes":""
+                    }
                 }
             ]
         }
