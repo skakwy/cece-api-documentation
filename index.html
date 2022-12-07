@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
 
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="mainWindow">
+        <div class="mainWindow" id="mainWindow">
             <div class="mainWindowContainer" id="mainWindowContainer">
 
                 <!-- <h1>Getting Started</h1>
@@ -62,10 +62,10 @@
                 //topic button
                 let button = document.createElement("button");
                 button.innerHTML = data["content"][i]["topic"];
-                button.addEventListener("click", parsedObj => {
-                    document.getElementById(parsedObj.currentTarget.innerHTML).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                button.addEventListener("click", (parsedObj) => {
+                    topOffset = document.getElementById(parsedObj.currentTarget.innerHTML).offsetTop
+                    document.getElementById("mainWindow").scrollTo({top:topOffset,behavior:"smooth"})
+              
                 });
                 listChild.appendChild(button);
                 //create children
@@ -76,9 +76,8 @@
                     child.innerHTML = data["content"][i]["content"][ii]["header"];
                     child.classList.add("children");
                     child.addEventListener("click", parsedObj => {
-                        document.getElementById(parsedObj.currentTarget.innerHTML).scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                        topOffset = document.getElementById(parsedObj.currentTarget.innerHTML).offsetTop
+                    console.log(document.getElementById("mainWindow").scrollTo({top:topOffset,behavior:"smooth"}));
                     });
                     listChild.appendChild(child)
                 }
@@ -94,6 +93,7 @@
             for (i = 0; i < data["content"].length; i++) {
                 //title of section
                 topicContainer = document.createElement("div");
+                topicContainer.classList.add("topicContainer");
                 topicDiv = document.createElement("div");
                 topicDiv.classList.add("topic");
                 topicDiv.innerHTML = data["content"][i]["topic"];
@@ -162,6 +162,14 @@
                     clearButton = document.createElement("button");
                     clearButton.classList.add("clearButton");
                     clearButton.innerHTML = "Clear";
+                    clearButton.addEventListener("click", (parsedObj) => {
+                        let parent = parsedObj.currentTarget.parentElement.parentElement;
+                        let inputs = parent.getElementsByClassName("parameterInput")[0].getElementsByTagName("input");
+                        for (i = 0; i < inputs.length; i++) {
+                            inputs[i].value = "";
+                        }
+
+                    })
                     parameterContainerButtons.appendChild(clearButton);
                     //content parameter container try button
                     tryButton = document.createElement("button");
@@ -180,11 +188,12 @@
 
                             body[names[i].innerHTML] = inputFields[i].value;
                         }
-                        console.log(body)
-                        fetch(data["apiLink"] + path, body = body, method = method)
+
+                        // data["apiLink"] + path, body = body, method = method
+                        fetch("https://api.roblox.com/users/get-by-username?username=Roblox")
                             .then(response => response.json())
-                            .then(data => console.log(data));
-                        
+                            .then(data => parent.parentElement.getElementsByClassName("responseText")[0].innerHTML = JSON.stringify(data, null, 2));
+
 
                     })
 
@@ -193,7 +202,10 @@
 
 
                     contentOfTopic.appendChild(contentParameterContainer);
-                    topicContainer.style.marginBottom = "10vh";
+                    if (i == data["content"].length - 1) {
+                        topicContainer.style.marginBottom = "15vh";
+                    }
+
                     responseTitle = document.createElement("div");
                     responseTitle.classList.add("requestClass");
                     responseTitle.innerHTML = "Response";
@@ -233,14 +245,15 @@
         document.getElementsByClassName("sideBarSearch")[0].addEventListener("keydown", (parsedObj) => {
             let search = parsedObj.currentTarget.value + parsedObj.key;
             let allHeaders = document.getElementById("sideBarList").getElementsByTagName("button")
-          
+
             for (i = 0; i < allHeaders.length; i++) {
-                if(allHeaders[i].innerHTML.startsWith(search)){
-                    console.log(allHeaders[i].innerHTML)
-                    document.getElementById(allHeaders[i].innerHTML).scrollIntoView({behavior:"smooth"});
+                if (allHeaders[i].innerHTML.toLowerCase().startsWith(search.toLowerCase())) {
+                    topOffset = document.getElementById(allHeaders[i].innerHTML).offsetTop
+                    document.getElementById("mainWindow").scrollTo({top:topOffset,behavior:"smooth"})
+              
                     break;
                 }
-     
+
             }
         })
 

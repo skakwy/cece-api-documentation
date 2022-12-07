@@ -6,6 +6,7 @@
     --leftMargin: 15px;
 }
 
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -104,22 +105,26 @@ body {
     box-shadow: #ECEDEF 0px 1px 0px 0px;
 
 }
-.sideBarSearchContainer{
+
+.sideBarSearchContainer {
     display: flex;
     flex-direction: column;
 
 }
-#searchSuggestions{
-    display:flex;
+
+#searchSuggestions {
+    display: flex;
     flex-direction: column;
-    
+
 }
-.searchSuggestion{
+
+.searchSuggestion {
     background-color: transparent;
     border: none;
-    color:white;
+    color: white;
     text-align: start;
 }
+
 .sideBarSearch::placeholder {
     color: #cbcfd4;
 
@@ -137,30 +142,44 @@ body {
     align-items: flex-start;
     margin-top: 15px;
     color: #687583;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
 }
 
+.middle .list::-webkit-scrollbar {
+    display: none;
+}
 
 
 .mainWindow {
     width: 100%;
     height: 100vh;
-    overflow-y:scroll;
+    overflow-y: scroll;
     padding-top: 26px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-.topicContainer{
+
+
+.mainWindow::-webkit-scrollbar {
+    display: none;
+}
+
+.topicContainer {
     display: flex;
     width: 100%;
     flex-direction: column;
 
 }
+
 .mainWindowContainer {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+
     width: 90%
 }
 
@@ -175,7 +194,7 @@ body {
     border: none;
     background-color: transparent;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     color: #687583;
     text-align: start;
     margin-top: 6px;
@@ -246,34 +265,38 @@ body {
     width: 100%;
     border: none;
     border-bottom: 1px solid #d3d3d3;
-    box-sizing:border-box;
+    box-sizing: border-box;
     border-radius: 3px;
 }
 
-.parameter{
+.parameter {
     display: flex;
     flex-direction: row;
     width: 80%;
 }
-.parameterNames{
-    gap:10px;
+
+.parameterNames {
+    gap: 10px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .parameterNames div {
     padding: 6px;
     padding-left: 0px;
 }
-.parameterInput{
+
+.parameterInput {
     flex: 1;
-    gap:10px;
+    gap: 10px;
     margin-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .parameterContainerChild input:focus {
     outline: none;
 }
@@ -311,7 +334,8 @@ body {
     width: 80px;
     border-radius: 3px;
 }
-.copyButton1{
+
+.copyButton1 {
     border: none;
     background-color: #e77347;
     font-size: 16px;
@@ -322,19 +346,23 @@ body {
     width: 80px;
     border-radius: 3px;
 }
+
 .responseTextContainer {
     /* border: 0.1px solid #999999; */
     margin-bottom: 20px;
     width: 80%;
-
+    max-height: 280px;
+    overflow-y: scroll;
 }
-.responseText{
-    color: #d3d3d3;
 
+.responseText {
+    color: #d3d3d3;
     white-space: pre-wrap;
     word-wrap: break-word;
+
 }
-.copyButton{
+
+.copyButton {
     padding: 6px;
     width: 60px;
     background-color: #e77347;
@@ -344,6 +372,7 @@ body {
     float: right;
     cursor: pointer;
 }
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #1e1e1e;
@@ -359,6 +388,7 @@ body {
 
     .sideBar .topContainer {
         border: none;
+        position: sticky;
     }
 
     .apiName {
@@ -373,7 +403,7 @@ body {
         background-color: #3e3f40;
         border: 1px solid #3e3f40;
         box-shadow: #3e3f40 0px 1px 0px 0px;
-        color:white;
+        color: white;
     }
 
     .listChild button {
@@ -402,9 +432,11 @@ body {
         color: #d3d3d3;
         background-color: #974141;
     }
+
     .contentOfTopic .header {
         color: #d3d3d3;
     }
+
     .parameter input {
         border: none;
     }
@@ -413,7 +445,42 @@ body {
 
 
 @media (max-width:480px) {
-    .sideBar{
+    .sideBar {
         display: none;
+    }
+
+    .requestClass,
+    .responseContainer {
+        display: none;
+    }
+
+    .parameterContainer input,
+    button {
+        display: none;
+    }
+
+    .parameterContainer {
+        padding-left: 10px;
+
+    }
+
+    .topicContainer {
+        margin-bottom: 5vh;
+    }
+
+    .parameterNames {
+        gap: 0px
+    }
+}
+
+@media screen and (max-height: 834px) {
+    .apiName{
+        font-size: 2.2vh;
+    }
+    .listChild button{
+        font-size: 14px;
+    }
+    .top{
+        margin-top: 20px;
     }
 }
